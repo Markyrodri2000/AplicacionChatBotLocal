@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../css/config.css" />
+<script src="../script/cambiar_estilos.js" defer></script>
+
+<div class="configuracion">
+    <div class="config-chat">
+        <div class="formulario1">
+            <form>
+                <label>Titulo para tu ChatBot: <input class="tit" type="text" placeholder="ChatBot"></label><br>
+                <label>Nombre de tu ChatBot: <input class="nombre_chat" type="text" placeholder="Alexa"></label><br>
+                <label>Color del fondo: <input class="color-fondo" type="color" id="colorpicker" value="#d3b378"></label><br>
+                <label>Color nav: <input class="color-nav" type="color" id="colorpicker" value="#ffa500"></label><br>
+                <label>Color mensajes servidor: <input class="color-servidor" type="color" id="colorpicker" value="#e0e0e0"></label><br>
+                <label>Color mensajes cliente: <input class="color-cliente" type="color" id="colorpicker" value="#eea74a"></label><br>
+                <label>Color fuente: <input class="color-fuente" type="color" id="colorpicker" value="#000000"></label><br>
+            </form>
+
+            <button class="send-style">Aplicar cambios</button>
+            <button class="restablecer-style">Restablecer estilos</button>
+            <button class="restablecer-chat">Restablecer chat</button>
+        </div>
+        <div class="controlar-widget">
+            <button class="widget">Descargar Widget</button>
+            <button class="guardar">Guardar chat</button>
+            <button class="probar">Probar Widget</button>
+        </div>
+        <span class="entregar">
+            <button class="cerrar"><img src="../img/close.png"></button>
+            <h3 class="titulo_api">API KEY</h3>
+            <input class="api_key_validar" type="text" placeholder=""><br>
+            <p class="error_key"></p>
+            <button class="validar_key">Validar</button>
+            <span class="entregar_codigo">
+                <h3>Widget Chat</h3>
+                <textarea></textarea>
+                <p>Copiar y pegar en tu código</p>
+                <button class="copiar">Copiar</button>
+            </span>
+            
+        </span>
+        <span class="guardar_desp">
+            <img class="check" src="../img/checked.png">
+            <p class="check_p">Widget guardado</p>
+        </span>
+        <span class="existente">
+            <button class="cerrar_guardar"><img src="../img/close.png"></button>
+            <p>Ya existe un chat guardado con el nombre Chatbot.</p>
+            <p>¿Desea sobreescribirlo?</p>
+            <input class="otro_nombre" type="text" placeholder="">
+            <button class="sobreescribir">Sobreescribir</button>
+            <button class="guardar_otro_nombre">Cambiar nombre</button>
+            <button class="Guardar">Guardar</button>
+            <button class="Cancelar">Cancelar</button>
+        </span>
+    </div>
+    <%- include('./entrenamiento') %>
+</div>

@@ -1,0 +1,49 @@
+<script src="../script/entrenamiento.js" defer></script>
+<link rel="stylesheet" href="../css/entrenamiento.css" />
+<div class="config-chat" id="config-train">
+    <div class="entrenamiento">
+        <form>
+            <label>Prompt:</label><br>
+            <textarea class="descripcion" value = "Eres un asistente servicial. Por favor responda las consultas de los usuarios.">Eres un asistente servicial. Por favor responda las consultas de los usuarios.</textarea><br>
+            <label>Idioma</label>
+            <select id="desplegable_idioma">
+                <option value="es" id="Español">Español</option>
+                <option value="en" id="Inglés">Inglés</option>
+            </select><br>
+            <div class="slider">
+                <label id="temperatura">Temperatura</label>
+                <input class="miSlider" type="range" min="0" max="1" step="0.01" value="0.5" id="miSlider">
+                <div class="slidervalue" id="sliderValue" value="0.5">0.5</div>
+            </div>
+            <label>Modelo:</label>
+            <select id="desplegable_modelo">
+                <option value="llama2" id="llama2">llama2</option>
+                <option value="mistral" id="mistral">mistral</option>
+                <option value="gemma" id="gemma">gemma</option>
+            </select><br>
+            <label class="links">Links web (opcional):<br><input class="link" type="text" placeholder="https://www.zara.com/es/"></label><br>
+            <img class="añadirLink" src="../img/add.png">
+            <img class="quitarLink" src="../img/delete.png">
+            <br><br>
+            <label class="datasets">Dataset (opcional):<br><input class="dataset" type="text" placeholder="Nombre dataset hugging face"></label><br>
+            <img class="añadirDataset" src="../img/add.png">
+            <img class="quitarDataset" src="../img/delete.png">
+            <br>
+        </form>
+        <button class="train">Entrenar</button>
+        <button class="train" id="restar_model">Restablecer modelo</button>
+
+        <div id="overlay"></div>
+        <span class = "progressbar" id ="progress-bar-container">
+            <p>Cargando...</p>
+            <div class="barra">
+                <span id="progress-bar"></span>
+            </div>
+        </span> 
+        
+        <span class = "incorrecto" id ="incorrecto">
+            <p> <img class="warning" src="../img/warning.png"> Link incorrecto. Introduzca links válidos y vuelva a entrenar el modelo.</p>
+            <img>
+        </span>
+    </div>
+</div>

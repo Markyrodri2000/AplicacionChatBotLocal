@@ -1,0 +1,57 @@
+version: '2.24.6'
+
+services:
+  db:
+      image: mysql:8.0
+      container_name: db_chatbot
+      environment:
+        - MYSQL_ROOT_PASSWORD=00280300
+        - MYSQL_DATABASE=Nistrica
+      ports:
+      - 3006:3006
+      volumes:
+        - ./Chatbot/backup/Nistrica.sql:/docker-entrypoint-initdb.d/init.sql
+  app:
+    build:
+      context: .
+      dockerfile: ./Chatbot/Dockerfile
+    image: chatbot
+    depends_on:
+      - db
+    links:
+      - db
+    container_name: app_chatbot
+    ports: 
+      - 3000:3000
+    volumes:
+      - ./Chatbot/:/app_chatbot
+      - /app_chatbot/node_modules
+    command: npm run dev
+  api:
+    build:
+      context: .
+      dockerfile: ./API-Azure/API-Modelos/Dockerfile
+    image: api
+    container_name: api
+    depends_on:
+      - app
+    links:
+      - app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./API-Azure/API-Modelos/:/api
+  Ollama:
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    volumes:
+      - ./API-Azure/Ollama/models:/ollama/models
+    environment:
+      - OLLAMA_MODELS=./API-Azure/ollama/models
+    depends_on:
+      - api
+    links:
+      - api
+    container_name: ollama
+
